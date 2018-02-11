@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# get articles user is subscribed to
+curl 'localhost:8080/api/v1/?user=1&begin=2010-02-02T23:20:50.52Z&end=2020-09-03T23:20:50.52Z'
+# add article
+curl -H "Content-Type: application/json" -X POST  -d '{"title":"great nba game","contents":"bal ajl ajllj"}' 'localhost:8080/api/v1/?feed=1'
+# subscribe
+curl -X POST  'localhost:8080/api/v1/feed/1/subscribe?user=1'
+# unsubscribe
+curl -X POST  'localhost:8080/api/v1/feed/1/unsubscribe?user=1'
+# get all feeds for a user
+curl 'localhost:8080/api/v1/feeds?user=1'

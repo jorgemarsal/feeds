@@ -1,0 +1,19 @@
+
+
+<form>
+  <div class="form-group">
+    <label>Title</label>
+    <input class="form-control" [(ngModel)]="title" placeholder="title" name="title">
+  </div>
+  <div class="form-group">
+    <label>Contents</label>
+    <textarea class="form-control" [(ngModel)]="contents" placeholder="contents" name="contents"></textarea>
+  </div>
+    <div class="form-group">
+  <select [(ngModel)]="selectedFeed" name="feed" class="form-control" >
+      <option *ngFor="let feed of feeds" [value]="feed.id">{{ feed.name }}</option>
+    </select>
+    </div>
+    <button (click)="publish()" type="submit" class="btn btn-success">Publish</button>
+
+</form>

@@ -1,0 +1,40 @@
+<form class="form-inline">
+  <div class="form-group">
+    <div class="input-group">
+      <input class="form-control" placeholder="yyyy-mm-dd"
+             name="dp" [(ngModel)]="begin" ngbDatepicker #d1="ngbDatepicker">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button">
+        begin
+        </button>
+      </div>
+      <input class="form-control" placeholder="yyyy-mm-dd"
+             name="dp2" [(ngModel)]="end" ngbDatepicker #d2="ngbDatepicker">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="d2.toggle()" type="button">
+          end
+        </button>
+      </div>
+      <button class="btn btn-success" (click)="refresh()" type="button">Refresh</button>
+    </div>
+  </div>
+</form>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Feed</th>
+      <th>Title</th>
+      <th>Contents</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let article of articles">
+      <td>{{ article.feed }}</td>
+      <td>{{ article.title }}</td>
+      <td>{{ article.contents }}</td>
+      <td>{{ article.createdAt }}</td>
+    </tr>
+  </tbody>
+</table>

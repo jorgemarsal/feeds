@@ -1,0 +1,19 @@
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Feed</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let feed of allFeeds">
+      <td>{{ feed.name }}</td>
+      <td>
+        <button class="btn btn-danger" (click)="unsubscribe(feed)" *ngIf="isSubscribed(feed)" type="button">Unsubscribe</button>
+        <button class="btn btn-success" (click)="subscribe(feed)" *ngIf="!isSubscribed(feed)" type="button">Subscribe</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
